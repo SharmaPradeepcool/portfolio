@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Pradeep Sharma | Software Developer Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --bg-main: #f5f5f7;        /* off-white */
+      --bg-card: #ffffff;
+      --text-main: #111827;      /* dark gray/black */
+      --text-muted: #4b5563;
+      --accent: #1f4f8c;         /* navy blue */
+      --border-subtle: #e5e7eb;
+      --radius: 12px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--bg-main);
+      color: var(--text-main);
+      line-height: 1.6;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .page-wrapper {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 20px 16px 40px;
+    }
+
+    @media (min-width: 768px) {
+      .page-wrapper {
+        padding: 32px 24px 48px;
+      }
+    }
+
+    /* Top header / nav */
+    .top-bar {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 24px;
+      border-bottom: 1px solid var(--border-subtle);
+      padding-bottom: 12px;
+      opacity: 0;
+      transform: translateY(12px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .top-bar.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .name-block {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .name-block h1 {
+      font-size: 1.6rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+
+    .name-block span {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    .contact-block {
+      font-size: 0.85rem;
+      text-align: right;
+    }
+
+    .contact-block div {
+      white-space: nowrap;
+    }
+
+    /* Simple nav */
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      font-size: 0.85rem;
+      margin: 12px 0 0;
+    }
+
+    .nav-links a {
+      padding: 4px 8px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      transition: border-color 0.2s ease, background-color 0.2s ease;
+    }
+
+    .nav-links a:hover {
+      border-color: var(--accent);
+      background-color: #f9fafb;
+      text-decoration: none;
+    }
+
+    /* Download CV button */
+    .btn-cv {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 8px 14px;
+      font-size: 0.85rem;
+      border-radius: 999px;
+      border: 1px solid var(--accent);
+      background: #ffffff;
+      color: var(--accent);
+      font-weight: 500;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background-color 0.2s ease, color 0.2s ease, transform 0.15s ease;
+    }
+
+    .btn-cv:hover {
+      background: var(--accent);
+      color: #ffffff;
+      text-decoration: none;
+      transform: translateY(-1px);
+    }
+
+    /* Layout sections */
+    section {
+      margin-bottom: 24px;
+      padding: 16px 18px;
+      background: var(--bg-card);
+      border-radius: var(--radius);
+      border: 1px solid var(--border-subtle);
+      opacity: 0;
+      transform: translateY(14px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .section-header {
+      margin-bottom: 8px;
+      padding-bottom: 4px;
+      border-bottom: 2px solid var(--accent);
+    }
+
+    .section-header h2 {
+      font-size: 1.05rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--accent);
+    }
+
+    .section-header p {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-top: 2px;
+    }
+
+    /* About / summary */
+    .summary-text {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    /* Experience */
+    .experience-item {
+      margin-top: 10px;
+      padding: 4px 2px;
+      border-radius: 8px;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .experience-item:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 10px rgba(15, 23, 42, 0.06);
+    }
+
+    .experience-title-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 6px;
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+
+    .experience-subtitle {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .experience-date {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      white-space: nowrap;
+    }
+
+    .experience-company {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .experience-list {
+      margin-top: 4px;
+      padding-left: 18px;
+      font-size: 0.88rem;
+    }
+
+    .experience-list li {
+      margin-bottom: 3px;
+    }
+
+    /* Education */
+    .education-item {
+      margin-top: 8px;
+      font-size: 0.9rem;
+      padding: 2px 0;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .education-item:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 3px 8px rgba(15, 23, 42, 0.04);
+    }
+
+    .education-degree {
+      font-weight: 600;
+    }
+
+    .education-inst {
+      color: var(--text-muted);
+      font-size: 0.86rem;
+    }
+
+    .education-meta {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    /* Projects */
+    .project-item {
+      margin-top: 10px;
+      padding: 4px 2px;
+      border-radius: 8px;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .project-item:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 10px rgba(15, 23, 42, 0.06);
+    }
+
+    .project-title-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 6px;
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+
+    .project-date {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      white-space: nowrap;
+    }
+
+    .project-tech {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      margin-top: 2px;
+    }
+
+    .project-list {
+      margin-top: 4px;
+      padding-left: 18px;
+      font-size: 0.88rem;
+    }
+
+    .project-list li {
+      margin-bottom: 3px;
+    }
+
+    /* Skills */
+    .skills-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px 10px;
+      margin-top: 8px;
+      font-size: 0.88rem;
+    }
+
+    .skill-pill {
+      padding: 4px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--border-subtle);
+      background: #f9fafb;
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    .skill-pill:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 3px 8px rgba(15, 23, 42, 0.04);
+    }
+
+    /* Extra */
+    .extra-text {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+    }
+
+    /* Footer */
+    .footer {
+      margin-top: 12px;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      text-align: center;
+    }
+
+    /* Responsive tweaks */
+    @media (max-width: 600px) {
+      .contact-block {
+        text-align: left;
+      }
+      .top-bar {
+        align-items: flex-start;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page-wrapper">
+    <!-- HEADER -->
+    <header class="top-bar" id="top-bar">
+      <div class="name-block">
+        <h1>Pradeep Sharma</h1>
+        <span>Software Developer · Full Stack · Mumbai, India</span>
+        <nav class="nav-links">
+          <a href="#summary">Summary</a>
+          <a href="#experience">Experience</a>
+          <a href="#projects">Projects</a>
+          <a href="#skills">Skills</a>
+          <a href="#education">Education</a>
+          <a href="#extra">Extra</a>
+        </nav>
+      </div>
+      <div class="contact-block">
+        <div><strong>Phone:</strong> <a href="tel:+917900071754">+91 79000 71754</a></div>
+        <div><strong>Email:</strong> <a href="mailto:pradeepsharma79000@gmail.com">pradeepsharma79000@gmail.com</a></div>
+        <div style="margin-top:6px;">
+          <a
+            class="btn-cv"
+            href="cv/Pradeep_Sharma_CV.pdf"
+            download="Pradeep_Sharma_CV.pdf"
+          >
+            Download CV
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <!-- SUMMARY -->
+    <section id="summary">
+      <div class="section-header">
+        <h2>Summary</h2>
+      </div>
+      <p class="summary-text">
+        Entry-level <strong>Software Developer / Full Stack Developer</strong> with multiple internships across
+        software development, full stack web, Java, and machine learning. Hands-on experience with
+        <strong>PHP, Laravel, JavaScript, MySQL, Python, Java, and Linux</strong>, along with server administration on
+        Contabo and InterServer. Built real-world systems, including a <strong>GIS role-based web application</strong> and a
+        <strong>Linux-based central file server</strong> to improve team collaboration and security. Also exposed to
+        <strong>Generative AI, Agent AI concepts, and IoT basics</strong> through academic and personal work.
+      </p>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section id="experience">
+      <div class="section-header">
+        <h2>Experience</h2>
+      </div>
+
+      <div class="experience-item">
+        <div class="experience-title-row">
+          <div>
+            Software Development Intern
+            <span class="experience-subtitle">· Aerica Engineering Pvt Ltd, Mumbai</span>
+          </div>
+          <div class="experience-date">Apr 2025 – Present</div>
+        </div>
+        <ul class="experience-list">
+          <li>Work as a software developer intern contributing to internal tools and applications.</li>
+          <li>Assist in understanding requirements, breaking down complex problems, and implementing efficient solutions.</li>
+          <li>Improve code quality through debugging, testing, and following clean coding practices.</li>
+        </ul>
+      </div>
+
+      <div class="experience-item">
+        <div class="experience-title-row">
+          <div>
+            Full Stack Development Intern
+            <span class="experience-subtitle">· Webluxdigi, Mumbai</span>
+          </div>
+          <div class="experience-date">Mar 2024 – Dec 2024</div>
+        </div>
+        <ul class="experience-list">
+          <li>Developed and maintained web applications using PHP, Laravel, JavaScript, HTML, CSS, and MySQL.</li>
+          <li>Handled basic server administration and deployment using Contabo and InterServer on Linux-based servers.</li>
+          <li>Collaborated with designers and senior developers to deliver features aligned with client requirements.</li>
+        </ul>
+      </div>
+
+      <div class="experience-item">
+        <div class="experience-title-row">
+          <div>
+            Machine Learning Intern
+            <span class="experience-subtitle">· OPS Info Tech, Mumbai</span>
+          </div>
+          <div class="experience-date">Jul 2023 – Sep 2023</div>
+        </div>
+        <ul class="experience-list">
+          <li>Gained practical experience in training machine learning models and evaluating their performance.</li>
+          <li>Performed data cleaning, manipulation, and feature preparation to support model training.</li>
+          <li>Learned how to integrate model outputs into simple use cases and present results to mentors.</li>
+        </ul>
+      </div>
+
+      <div class="experience-item">
+        <div class="experience-title-row">
+          <div>
+            Java Development Intern
+            <span class="experience-subtitle">· SDAC Info Tech, Mumbai</span>
+          </div>
+          <div class="experience-date">Apr 2023 – Jun 2023</div>
+        </div>
+        <ul class="experience-list">
+          <li>Strengthened core Java and object-oriented programming concepts through small applications and modules.</li>
+          <li>Assisted in writing, testing, and debugging Java code as part of a structured development workflow.</li>
+          <li>Gained exposure to the software development life cycle and version control practices.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects">
+      <div class="section-header">
+        <h2>Projects</h2>
+      </div>
+
+      <div class="project-item">
+        <div class="project-title-row">
+          <div>GIS – Role-Based Field Operations Web Application</div>
+          <div class="project-date">Jun 2025 – Present</div>
+        </div>
+        <div class="project-tech">Laravel · MySQL · Google Maps API</div>
+        <ul class="project-list">
+          <li>Developed a role-based web application with three roles: Super Admin, Admin, and User for managing field operations.</li>
+          <li>Implemented project logging where users can attach videos/images and capture precise start and end location coordinates.</li>
+          <li>Integrated Google Maps to visualize project locations, allowing admins to see start and end points of all field work.</li>
+          <li>Added a cascading block system so that blocking an admin by a super admin automatically blocks all users under that admin.</li>
+        </ul>
+      </div>
+
+      <div class="project-item">
+        <div class="project-title-row">
+          <div>Team Collaboration & Storage Solution (Linux File Server)</div>
+          <div class="project-date">May 2025</div>
+        </div>
+        <div class="project-tech">Linux · File Server · User Access Control</div>
+        <ul class="project-list">
+          <li>Configured a central file server using Linux to replace scattered and insecure file sharing within the team.</li>
+          <li>Created a secure, centralized location for storing and accessing project files, similar to a private Dropbox.</li>
+          <li>Set up directory structure, permissions, and user access controls to improve security and simplify collaboration.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills">
+      <div class="section-header">
+        <h2>Skills</h2>
+      </div>
+      <div class="skills-grid">
+        <span class="skill-pill">PHP</span>
+        <span class="skill-pill">JavaScript</span>
+        <span class="skill-pill">Python</span>
+        <span class="skill-pill">Java</span>
+        <span class="skill-pill">HTML</span>
+        <span class="skill-pill">CSS</span>
+        <span class="skill-pill">Laravel</span>
+        <span class="skill-pill">SQL</span>
+        <span class="skill-pill">MySQL</span>
+        <span class="skill-pill">Linux</span>
+        <span class="skill-pill">REST APIs</span>
+        <span class="skill-pill">Full Stack Development</span>
+        <span class="skill-pill">Machine Learning (Basics)</span>
+        <span class="skill-pill">Generative AI (Basics)</span>
+        <span class="skill-pill">Agent AI Concepts (Basics)</span>
+        <span class="skill-pill">IoT Basics</span>
+        <span class="skill-pill">Server Administration (Contabo, InterServer)</span>
+      </div>
+    </section>
+
+    <!-- EDUCATION -->
+    <section id="education">
+      <div class="section-header">
+        <h2>Education</h2>
+      </div>
+
+      <div class="education-item">
+        <div class="education-degree">Master of Science (M.Sc), Computer Science</div>
+        <div class="education-inst">Thakur College of Science & Commerce, Mumbai</div>
+        <div class="education-meta">2024 – 2026</div>
+      </div>
+
+      <div class="education-item">
+        <div class="education-degree">Bachelor of Science (B.Sc), Computer Science</div>
+        <div class="education-inst">Thakur College of Science & Commerce, Mumbai</div>
+        <div class="education-meta">2021 – 2024</div>
+      </div>
+
+      <div class="education-item">
+        <div class="education-degree">Senior Secondary (XII), Science – Maharashtra Board</div>
+        <div class="education-inst">Nirmala Memorial Foundation College of Science & Commerce</div>
+        <div class="education-meta">2021</div>
+      </div>
+
+      <div class="education-item">
+        <div class="education-degree">Secondary (X) – Maharashtra Board</div>
+        <div class="education-inst">St. Thomas Mar Thoma School</div>
+        <div class="education-meta">2019</div>
+      </div>
+    </section>
+
+    <!-- EXTRA -->
+    <section id="extra">
+      <div class="section-header">
+        <h2>Extra Curricular</h2>
+      </div>
+      <p class="extra-text">
+        Served as an NSS volunteer for two years, participating in community service and social initiatives.
+        Gained experience in teamwork, public speaking, and effective communication by working with diverse groups.
+        Stepped out of my comfort zone, developed empathy, and strengthened my ability to collaborate in different environments.
+      </p>
+    </section>
+
+    <footer class="footer">
+      © Pradeep Sharma · Portfolio
+    </footer>
+  </div>
+
+  <!-- Scroll-in animation logic -->
+  <script>
+    const sections = document.querySelectorAll("section");
+    const topBar = document.getElementById("top-bar");
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+          }
+        });
+      },
+      { threshold: 0.15 }
+    );
+
+    sections.forEach((section) => observer.observe(section));
+
+    // Make header appear on load
+    window.addEventListener("load", () => {
+      topBar.classList.add("visible");
+    });
+  </script>
+</body>
+</html>
