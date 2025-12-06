@@ -17,7 +17,7 @@
   <meta name="author" content="Pradeep Sharma" />
   <meta name="robots" content="index, follow" />
 
-  <!-- Open Graph (for social previews) -->
+  <!-- Open Graph -->
   <meta property="og:title" content="Pradeep Sharma | Software Developer & Full Stack Engineer" />
   <meta
     property="og:description"
@@ -25,8 +25,6 @@
   />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://your-portfolio-url.com" />
-  <!-- You can add an image if you have one -->
-  <!-- <meta property="og:image" content="https://your-portfolio-url.com/og-image.jpg" /> -->
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
@@ -36,7 +34,7 @@
     content="Software Developer & Full Stack Engineer in Mumbai. PHP, Laravel, JavaScript, MySQL, Linux, ML basics."
   />
 
-  <!-- Canonical URL (important for SEO) -->
+  <!-- Canonical URL -->
   <link rel="canonical" href="https://your-portfolio-url.com" />
 
   <!-- Google Font -->
@@ -80,6 +78,7 @@
       max-width: 960px;
       margin: 0 auto;
       padding: 20px 16px 40px;
+      width: 100%;
     }
 
     @media (min-width: 768px) {
@@ -88,12 +87,11 @@
       }
     }
 
-    /* Top header / nav */
+    /* Top header */
     .top-bar {
       display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      align-items: center;
+      flex-direction: column;        /* always column = no more weird side-by-side */
+      align-items: flex-start;
       gap: 12px;
       margin-bottom: 24px;
       border-bottom: 1px solid var(--border-subtle);
@@ -111,32 +109,20 @@
     .name-block {
       display: flex;
       flex-direction: column;
-      gap: 2px;
-      flex: 1 1 260px;
-      min-width: 0;
+      gap: 4px;
+      width: 100%;
     }
 
     .name-block h1 {
       font-size: 1.8rem;
       font-weight: 700;
       letter-spacing: 0.02em;
+      word-break: break-word;
     }
 
     .name-block span {
       font-size: 0.9rem;
       color: var(--text-muted);
-    }
-
-    .contact-block {
-      font-size: 0.85rem;
-      text-align: right;
-      flex: 0 0 auto;
-    }
-
-    .contact-block div {
-      /* allow wrap on small screens */
-      word-wrap: break-word;
-      word-break: break-word;
     }
 
     /* Simple nav */
@@ -145,7 +131,7 @@
       flex-wrap: wrap;
       gap: 10px;
       font-size: 0.85rem;
-      margin: 10px 0 0;
+      margin: 8px 0 0;
     }
 
     .nav-links a {
@@ -160,6 +146,17 @@
       border-color: var(--accent);
       background-color: #f9fafb;
       text-decoration: none;
+    }
+
+    .contact-block {
+      font-size: 0.85rem;
+      text-align: left;
+      width: 100%;
+    }
+
+    .contact-block div {
+      word-wrap: break-word;
+      word-break: break-word;
     }
 
     /* Download CV button */
@@ -177,7 +174,7 @@
       cursor: pointer;
       text-decoration: none;
       transition: background-color 0.2s ease, color 0.2s ease, transform 0.15s ease;
-      margin-top: 6px;
+      margin-top: 8px;
     }
 
     .btn-cv:hover {
@@ -387,30 +384,14 @@
       text-align: center;
     }
 
-    /* Responsive tweaks */
+    /* Mobile tweaks */
     @media (max-width: 640px) {
-      .top-bar {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-
-      .contact-block {
-        text-align: left;
-        width: 100%;
+      .page-wrapper {
+        padding: 16px 10px 32px;
       }
 
       .name-block h1 {
-        font-size: 1.5rem;
-      }
-
-      .nav-links {
-        margin-top: 8px;
-        gap: 8px;
-      }
-
-      .nav-links a {
-        padding: 4px 8px;
-        font-size: 0.8rem;
+        font-size: 1.6rem;
       }
 
       section {
@@ -446,12 +427,10 @@
           <a href="#extra">Extra</a>
         </nav>
       </div>
+
       <div class="contact-block">
         <div><strong>Phone:</strong> <a href="tel:+917900071754">+91 79000 71754</a></div>
         <div><strong>Email:</strong> <a href="mailto:pradeepsharma79000@gmail.com">pradeepsharma79000@gmail.com</a></div>
-        <!-- Optional: add GitHub / LinkedIn -->
-        <!-- <div><strong>GitHub:</strong> <a href="https://github.com/yourusername">github.com/yourusername</a></div> -->
-        <!-- <div><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/yourprofile">linkedin.com/in/yourprofile</a></div> -->
         <a
           class="btn-cv"
           href="cv/Pradeep_Sharma_CV.pdf"
@@ -654,7 +633,7 @@
     </footer>
   </div>
 
-  <!-- Scroll-in animation logic -->
+  <!-- Scroll-in animation -->
   <script>
     const sections = document.querySelectorAll("section");
     const topBar = document.getElementById("top-bar");
@@ -672,13 +651,12 @@
 
     sections.forEach((section) => observer.observe(section));
 
-    // Make header appear on load
     window.addEventListener("load", () => {
       topBar.classList.add("visible");
     });
   </script>
 
-  <!-- JSON-LD Structured Data for SEO -->
+  <!-- JSON-LD -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -694,13 +672,6 @@
       "addressLocality": "Mumbai",
       "addressCountry": "IN"
     }
-    /* Uncomment and fill when you have them:
-    ,
-    "sameAs": [
-      "https://github.com/yourusername",
-      "https://www.linkedin.com/in/yourprofile"
-    ]
-    */
   }
   </script>
 </body>
