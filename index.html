@@ -2,41 +2,8 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Pradeep Sharma | Software Developer & Full Stack Engineer for Hire</title>
+  <title>Pradeep Sharma | Software Developer Portfolio</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <!-- SEO Meta Tags -->
-  <meta
-    name="description"
-    content="Pradeep Sharma is a Software Developer and Full Stack Engineer based in Mumbai, India. Skilled in PHP, Laravel, JavaScript, MySQL, Linux, and server administration. Available for software developer and full stack roles."
-  />
-  <meta
-    name="keywords"
-    content="Pradeep Sharma, software developer for hire, full stack developer, PHP developer, Laravel developer, JavaScript developer, software engineer Mumbai"
-  />
-  <meta name="author" content="Pradeep Sharma" />
-  <meta name="robots" content="index, follow" />
-
-  <!-- Open Graph -->
-  <meta property="og:title" content="Pradeep Sharma | Software Developer & Full Stack Engineer" />
-  <meta
-    property="og:description"
-    content="Software Developer and Full Stack Engineer based in Mumbai. PHP, Laravel, JavaScript, MySQL, Linux, ML basics. Open to opportunities and freelance work."
-  />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://your-portfolio-url.com" />
-
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Pradeep Sharma | Software Developer & Full Stack Engineer" />
-  <meta
-    name="twitter:description"
-    content="Software Developer & Full Stack Engineer in Mumbai. PHP, Laravel, JavaScript, MySQL, Linux, ML basics."
-  />
-
-  <!-- Canonical URL -->
-  <link rel="canonical" href="https://your-portfolio-url.com" />
-
   <!-- Google Font -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
 
@@ -78,7 +45,6 @@
       max-width: 960px;
       margin: 0 auto;
       padding: 20px 16px 40px;
-      width: 100%;
     }
 
     @media (min-width: 768px) {
@@ -87,11 +53,12 @@
       }
     }
 
-    /* Top header */
+    /* Top header / nav */
     .top-bar {
       display: flex;
-      flex-direction: column;        /* always column = no more weird side-by-side */
-      align-items: flex-start;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
       gap: 12px;
       margin-bottom: 24px;
       border-bottom: 1px solid var(--border-subtle);
@@ -109,15 +76,13 @@
     .name-block {
       display: flex;
       flex-direction: column;
-      gap: 4px;
-      width: 100%;
+      gap: 2px;
     }
 
     .name-block h1 {
-      font-size: 1.8rem;
+      font-size: 1.6rem;
       font-weight: 700;
       letter-spacing: 0.02em;
-      word-break: break-word;
     }
 
     .name-block span {
@@ -125,38 +90,35 @@
       color: var(--text-muted);
     }
 
+    .contact-block {
+      font-size: 0.85rem;
+      text-align: right;
+    }
+
+    .contact-block div {
+      white-space: nowrap;
+    }
+
     /* Simple nav */
     .nav-links {
       display: flex;
       flex-wrap: wrap;
-      gap: 10px;
+      gap: 12px;
       font-size: 0.85rem;
-      margin: 8px 0 0;
+      margin: 12px 0 0;
     }
 
     .nav-links a {
-      padding: 4px 10px;
+      padding: 4px 8px;
       border-radius: 999px;
       border: 1px solid transparent;
       transition: border-color 0.2s ease, background-color 0.2s ease;
-      white-space: nowrap;
     }
 
     .nav-links a:hover {
       border-color: var(--accent);
       background-color: #f9fafb;
       text-decoration: none;
-    }
-
-    .contact-block {
-      font-size: 0.85rem;
-      text-align: left;
-      width: 100%;
-    }
-
-    .contact-block div {
-      word-wrap: break-word;
-      word-break: break-word;
     }
 
     /* Download CV button */
@@ -174,7 +136,6 @@
       cursor: pointer;
       text-decoration: none;
       transition: background-color 0.2s ease, color 0.2s ease, transform 0.15s ease;
-      margin-top: 8px;
     }
 
     .btn-cv:hover {
@@ -185,10 +146,6 @@
     }
 
     /* Layout sections */
-    main {
-      display: block;
-    }
-
     section {
       margin-bottom: 24px;
       padding: 16px 18px;
@@ -248,7 +205,7 @@
       display: flex;
       flex-wrap: wrap;
       justify-content: space-between;
-      gap: 4px;
+      gap: 6px;
       font-size: 0.9rem;
       font-weight: 600;
     }
@@ -256,14 +213,17 @@
     .experience-subtitle {
       font-size: 0.85rem;
       color: var(--text-muted);
-      font-weight: 400;
     }
 
     .experience-date {
       font-size: 0.8rem;
       color: var(--text-muted);
       white-space: nowrap;
-      flex-shrink: 0;
+    }
+
+    .experience-company {
+      font-size: 0.85rem;
+      color: var(--text-muted);
     }
 
     .experience-list {
@@ -320,7 +280,7 @@
       display: flex;
       flex-wrap: wrap;
       justify-content: space-between;
-      gap: 4px;
+      gap: 6px;
       font-size: 0.9rem;
       font-weight: 600;
     }
@@ -329,7 +289,6 @@
       font-size: 0.8rem;
       color: var(--text-muted);
       white-space: nowrap;
-      flex-shrink: 0;
     }
 
     .project-tech {
@@ -384,29 +343,13 @@
       text-align: center;
     }
 
-    /* Mobile tweaks */
-    @media (max-width: 640px) {
-      .page-wrapper {
-        padding: 16px 10px 32px;
+    /* Responsive tweaks */
+    @media (max-width: 600px) {
+      .contact-block {
+        text-align: left;
       }
-
-      .name-block h1 {
-        font-size: 1.6rem;
-      }
-
-      section {
-        padding: 14px 12px;
-      }
-
-      .experience-title-row,
-      .project-title-row {
-        flex-direction: column;
+      .top-bar {
         align-items: flex-start;
-      }
-
-      .experience-date,
-      .project-date {
-        margin-top: 2px;
       }
     }
   </style>
@@ -417,8 +360,8 @@
     <header class="top-bar" id="top-bar">
       <div class="name-block">
         <h1>Pradeep Sharma</h1>
-        <span>Software Developer · Full Stack Engineer · Mumbai, India</span>
-        <nav class="nav-links" aria-label="Primary navigation">
+        <span>Software Developer · Full Stack · Mumbai, India</span>
+        <nav class="nav-links">
           <a href="#summary">Summary</a>
           <a href="#experience">Experience</a>
           <a href="#projects">Projects</a>
@@ -427,213 +370,212 @@
           <a href="#extra">Extra</a>
         </nav>
       </div>
-
       <div class="contact-block">
         <div><strong>Phone:</strong> <a href="tel:+917900071754">+91 79000 71754</a></div>
         <div><strong>Email:</strong> <a href="mailto:pradeepsharma79000@gmail.com">pradeepsharma79000@gmail.com</a></div>
-        <a
-          class="btn-cv"
-          href="cv/Pradeep_Sharma_CV.pdf"
-          download="Pradeep_Sharma_CV.pdf"
-        >
-          Download CV
-        </a>
+        <div style="margin-top:6px;">
+          <a
+            class="btn-cv"
+            href="cv/Pradeep_Sharma_CV.pdf"
+            download="Pradeep_Sharma_CV.pdf"
+          >
+            Download CV
+          </a>
+        </div>
       </div>
     </header>
 
-    <main>
-      <!-- SUMMARY -->
-      <section id="summary">
-        <div class="section-header">
-          <h2>Summary</h2>
-        </div>
-        <p class="summary-text">
-          Entry-level <strong>Software Developer / Full Stack Developer</strong> with multiple internships across
-          software development, full stack web, Java, and machine learning. Hands-on experience with
-          <strong>PHP, Laravel, JavaScript, MySQL, Python, Java, and Linux</strong>, along with server administration on
-          Contabo and InterServer. Built real-world systems, including a <strong>GIS role-based web application</strong> and a
-          <strong>Linux-based central file server</strong> to improve team collaboration and security. Also exposed to
-          <strong>Generative AI, Agent AI concepts, and IoT basics</strong> through academic and personal work.
-        </p>
-      </section>
+    <!-- SUMMARY -->
+    <section id="summary">
+      <div class="section-header">
+        <h2>Summary</h2>
+      </div>
+      <p class="summary-text">
+        Entry-level <strong>Software Developer / Full Stack Developer</strong> with multiple internships across
+        software development, full stack web, Java, and machine learning. Hands-on experience with
+        <strong>PHP, Laravel, JavaScript, MySQL, Python, Java, and Linux</strong>, along with server administration on
+        Contabo and InterServer. Built real-world systems, including a <strong>GIS role-based web application</strong> and a
+        <strong>Linux-based central file server</strong> to improve team collaboration and security. Also exposed to
+        <strong>Generative AI, Agent AI concepts, and IoT basics</strong> through academic and personal work.
+      </p>
+    </section>
 
-      <!-- EXPERIENCE -->
-      <section id="experience">
-        <div class="section-header">
-          <h2>Experience</h2>
-        </div>
+    <!-- EXPERIENCE -->
+    <section id="experience">
+      <div class="section-header">
+        <h2>Experience</h2>
+      </div>
 
-        <div class="experience-item">
-          <div class="experience-title-row">
-            <div>
-              Software Development Intern
-              <span class="experience-subtitle">· Aerica Engineering Pvt Ltd, Mumbai</span>
-            </div>
-            <div class="experience-date">Apr 2025 – Present</div>
+      <div class="experience-item">
+        <div class="experience-title-row">
+          <div>
+            Software Development Intern
+            <span class="experience-subtitle">· Aerica Engineering Pvt Ltd, Mumbai</span>
           </div>
-          <ul class="experience-list">
-            <li>Work as a software developer intern contributing to internal tools and applications.</li>
-            <li>Assist in understanding requirements, breaking down complex problems, and implementing efficient solutions.</li>
-            <li>Improve code quality through debugging, testing, and following clean coding practices.</li>
-          </ul>
+          <div class="experience-date">Apr 2025 – Present</div>
         </div>
+        <ul class="experience-list">
+          <li>Work as a software developer intern contributing to internal tools and applications.</li>
+          <li>Assist in understanding requirements, breaking down complex problems, and implementing efficient solutions.</li>
+          <li>Improve code quality through debugging, testing, and following clean coding practices.</li>
+        </ul>
+      </div>
 
-        <div class="experience-item">
-          <div class="experience-title-row">
-            <div>
-              Full Stack Development Intern
-              <span class="experience-subtitle">· Webluxdigi, Mumbai</span>
-            </div>
-            <div class="experience-date">Mar 2024 – Dec 2024</div>
+      <div class="experience-item">
+        <div class="experience-title-row">
+          <div>
+            Full Stack Development Intern
+            <span class="experience-subtitle">· Webluxdigi, Mumbai</span>
           </div>
-          <ul class="experience-list">
-            <li>Developed and maintained web applications using PHP, Laravel, JavaScript, HTML, CSS, and MySQL.</li>
-            <li>Handled basic server administration and deployment using Contabo and InterServer on Linux-based servers.</li>
-            <li>Collaborated with designers and senior developers to deliver features aligned with client requirements.</li>
-          </ul>
+          <div class="experience-date">Mar 2024 – Dec 2024</div>
         </div>
+        <ul class="experience-list">
+          <li>Developed and maintained web applications using PHP, Laravel, JavaScript, HTML, CSS, and MySQL.</li>
+          <li>Handled basic server administration and deployment using Contabo and InterServer on Linux-based servers.</li>
+          <li>Collaborated with designers and senior developers to deliver features aligned with client requirements.</li>
+        </ul>
+      </div>
 
-        <div class="experience-item">
-          <div class="experience-title-row">
-            <div>
-              Machine Learning Intern
-              <span class="experience-subtitle">· OPS Info Tech, Mumbai</span>
-            </div>
-            <div class="experience-date">Jul 2023 – Sep 2023</div>
+      <div class="experience-item">
+        <div class="experience-title-row">
+          <div>
+            Machine Learning Intern
+            <span class="experience-subtitle">· OPS Info Tech, Mumbai</span>
           </div>
-          <ul class="experience-list">
-            <li>Gained practical experience in training machine learning models and evaluating their performance.</li>
-            <li>Performed data cleaning, manipulation, and feature preparation to support model training.</li>
-            <li>Learned how to integrate model outputs into simple use cases and present results to mentors.</li>
-          </ul>
+          <div class="experience-date">Jul 2023 – Sep 2023</div>
         </div>
+        <ul class="experience-list">
+          <li>Gained practical experience in training machine learning models and evaluating their performance.</li>
+          <li>Performed data cleaning, manipulation, and feature preparation to support model training.</li>
+          <li>Learned how to integrate model outputs into simple use cases and present results to mentors.</li>
+        </ul>
+      </div>
 
-        <div class="experience-item">
-          <div class="experience-title-row">
-            <div>
-              Java Development Intern
-              <span class="experience-subtitle">· SDAC Info Tech, Mumbai</span>
-            </div>
-            <div class="experience-date">Apr 2023 – Jun 2023</div>
+      <div class="experience-item">
+        <div class="experience-title-row">
+          <div>
+            Java Development Intern
+            <span class="experience-subtitle">· SDAC Info Tech, Mumbai</span>
           </div>
-          <ul class="experience-list">
-            <li>Strengthened core Java and object-oriented programming concepts through small applications and modules.</li>
-            <li>Assisted in writing, testing, and debugging Java code as part of a structured development workflow.</li>
-            <li>Gained exposure to the software development life cycle and version control practices.</li>
-          </ul>
+          <div class="experience-date">Apr 2023 – Jun 2023</div>
         </div>
-      </section>
+        <ul class="experience-list">
+          <li>Strengthened core Java and object-oriented programming concepts through small applications and modules.</li>
+          <li>Assisted in writing, testing, and debugging Java code as part of a structured development workflow.</li>
+          <li>Gained exposure to the software development life cycle and version control practices.</li>
+        </ul>
+      </div>
+    </section>
 
-      <!-- PROJECTS -->
-      <section id="projects">
-        <div class="section-header">
-          <h2>Projects</h2>
-        </div>
+    <!-- PROJECTS -->
+    <section id="projects">
+      <div class="section-header">
+        <h2>Projects</h2>
+      </div>
 
-        <div class="project-item">
-          <div class="project-title-row">
-            <div>GIS – Role-Based Field Operations Web Application</div>
-            <div class="project-date">Jun 2025 – Present</div>
-          </div>
-          <div class="project-tech">Laravel · MySQL · Google Maps API</div>
-          <ul class="project-list">
-            <li>Developed a role-based web application with three roles: Super Admin, Admin, and User for managing field operations.</li>
-            <li>Implemented project logging where users can attach videos/images and capture precise start and end location coordinates.</li>
-            <li>Integrated Google Maps to visualize project locations, allowing admins to see start and end points of all field work.</li>
-            <li>Added a cascading block system so that blocking an admin by a super admin automatically blocks all users under that admin.</li>
-          </ul>
+      <div class="project-item">
+        <div class="project-title-row">
+          <div>GIS – Role-Based Field Operations Web Application</div>
+          <div class="project-date">Jun 2025 – Present</div>
         </div>
+        <div class="project-tech">Laravel · MySQL · Google Maps API</div>
+        <ul class="project-list">
+          <li>Developed a role-based web application with three roles: Super Admin, Admin, and User for managing field operations.</li>
+          <li>Implemented project logging where users can attach videos/images and capture precise start and end location coordinates.</li>
+          <li>Integrated Google Maps to visualize project locations, allowing admins to see start and end points of all field work.</li>
+          <li>Added a cascading block system so that blocking an admin by a super admin automatically blocks all users under that admin.</li>
+        </ul>
+      </div>
 
-        <div class="project-item">
-          <div class="project-title-row">
-            <div>Team Collaboration & Storage Solution (Linux File Server)</div>
-            <div class="project-date">May 2025</div>
-          </div>
-          <div class="project-tech">Linux · File Server · User Access Control</div>
-          <ul class="project-list">
-            <li>Configured a central file server using Linux to replace scattered and insecure file sharing within the team.</li>
-            <li>Created a secure, centralized location for storing and accessing project files, similar to a private Dropbox.</li>
-            <li>Set up directory structure, permissions, and user access controls to improve security and simplify collaboration.</li>
-          </ul>
+      <div class="project-item">
+        <div class="project-title-row">
+          <div>Team Collaboration & Storage Solution (Linux File Server)</div>
+          <div class="project-date">May 2025</div>
         </div>
-      </section>
+        <div class="project-tech">Linux · File Server · User Access Control</div>
+        <ul class="project-list">
+          <li>Configured a central file server using Linux to replace scattered and insecure file sharing within the team.</li>
+          <li>Created a secure, centralized location for storing and accessing project files, similar to a private Dropbox.</li>
+          <li>Set up directory structure, permissions, and user access controls to improve security and simplify collaboration.</li>
+        </ul>
+      </div>
+    </section>
 
-      <!-- SKILLS -->
-      <section id="skills">
-        <div class="section-header">
-          <h2>Skills</h2>
-        </div>
-        <div class="skills-grid">
-          <span class="skill-pill">PHP</span>
-          <span class="skill-pill">JavaScript</span>
-          <span class="skill-pill">Python</span>
-          <span class="skill-pill">Java</span>
-          <span class="skill-pill">HTML</span>
-          <span class="skill-pill">CSS</span>
-          <span class="skill-pill">Laravel</span>
-          <span class="skill-pill">SQL</span>
-          <span class="skill-pill">MySQL</span>
-          <span class="skill-pill">Linux</span>
-          <span class="skill-pill">REST APIs</span>
-          <span class="skill-pill">Full Stack Development</span>
-          <span class="skill-pill">Machine Learning (Basics)</span>
-          <span class="skill-pill">Generative AI (Basics)</span>
-          <span class="skill-pill">Agent AI Concepts (Basics)</span>
-          <span class="skill-pill">IoT Basics</span>
-          <span class="skill-pill">Server Administration (Contabo, InterServer)</span>
-        </div>
-      </section>
+    <!-- SKILLS -->
+    <section id="skills">
+      <div class="section-header">
+        <h2>Skills</h2>
+      </div>
+      <div class="skills-grid">
+        <span class="skill-pill">PHP</span>
+        <span class="skill-pill">JavaScript</span>
+        <span class="skill-pill">Python</span>
+        <span class="skill-pill">Java</span>
+        <span class="skill-pill">HTML</span>
+        <span class="skill-pill">CSS</span>
+        <span class="skill-pill">Laravel</span>
+        <span class="skill-pill">SQL</span>
+        <span class="skill-pill">MySQL</span>
+        <span class="skill-pill">Linux</span>
+        <span class="skill-pill">REST APIs</span>
+        <span class="skill-pill">Full Stack Development</span>
+        <span class="skill-pill">Machine Learning (Basics)</span>
+        <span class="skill-pill">Generative AI (Basics)</span>
+        <span class="skill-pill">Agent AI Concepts (Basics)</span>
+        <span class="skill-pill">IoT Basics</span>
+        <span class="skill-pill">Server Administration (Contabo, InterServer)</span>
+      </div>
+    </section>
 
-      <!-- EDUCATION -->
-      <section id="education">
-        <div class="section-header">
-          <h2>Education</h2>
-        </div>
+    <!-- EDUCATION -->
+    <section id="education">
+      <div class="section-header">
+        <h2>Education</h2>
+      </div>
 
-        <div class="education-item">
-          <div class="education-degree">Master of Science (M.Sc), Computer Science</div>
-          <div class="education-inst">Thakur College of Science & Commerce, Mumbai</div>
-          <div class="education-meta">2024 – 2026</div>
-        </div>
+      <div class="education-item">
+        <div class="education-degree">Master of Science (M.Sc), Computer Science</div>
+        <div class="education-inst">Thakur College of Science & Commerce, Mumbai</div>
+        <div class="education-meta">2024 – 2026</div>
+      </div>
 
-        <div class="education-item">
-          <div class="education-degree">Bachelor of Science (B.Sc), Computer Science</div>
-          <div class="education-inst">Thakur College of Science & Commerce, Mumbai</div>
-          <div class="education-meta">2021 – 2024</div>
-        </div>
+      <div class="education-item">
+        <div class="education-degree">Bachelor of Science (B.Sc), Computer Science</div>
+        <div class="education-inst">Thakur College of Science & Commerce, Mumbai</div>
+        <div class="education-meta">2021 – 2024</div>
+      </div>
 
-        <div class="education-item">
-          <div class="education-degree">Senior Secondary (XII), Science – Maharashtra Board</div>
-          <div class="education-inst">Nirmala Memorial Foundation College of Science & Commerce</div>
-          <div class="education-meta">2021</div>
-        </div>
+      <div class="education-item">
+        <div class="education-degree">Senior Secondary (XII), Science – Maharashtra Board</div>
+        <div class="education-inst">Nirmala Memorial Foundation College of Science & Commerce</div>
+        <div class="education-meta">2021</div>
+      </div>
 
-        <div class="education-item">
-          <div class="education-degree">Secondary (X) – Maharashtra Board</div>
-          <div class="education-inst">St. Thomas Mar Thoma School</div>
-          <div class="education-meta">2019</div>
-        </div>
-      </section>
+      <div class="education-item">
+        <div class="education-degree">Secondary (X) – Maharashtra Board</div>
+        <div class="education-inst">St. Thomas Mar Thoma School</div>
+        <div class="education-meta">2019</div>
+      </div>
+    </section>
 
-      <!-- EXTRA -->
-      <section id="extra">
-        <div class="section-header">
-          <h2>Extra Curricular</h2>
-        </div>
-        <p class="extra-text">
-          Served as an NSS volunteer for two years, participating in community service and social initiatives.
-          Gained experience in teamwork, public speaking, and effective communication by working with diverse groups.
-          Stepped out of my comfort zone, developed empathy, and strengthened my ability to collaborate in different environments.
-        </p>
-      </section>
-    </main>
+    <!-- EXTRA -->
+    <section id="extra">
+      <div class="section-header">
+        <h2>Extra Curricular</h2>
+      </div>
+      <p class="extra-text">
+        Served as an NSS volunteer for two years, participating in community service and social initiatives.
+        Gained experience in teamwork, public speaking, and effective communication by working with diverse groups.
+        Stepped out of my comfort zone, developed empathy, and strengthened my ability to collaborate in different environments.
+      </p>
+    </section>
 
     <footer class="footer">
-      © Pradeep Sharma · Software Developer & Full Stack Engineer
+      © Pradeep Sharma · Portfolio
     </footer>
   </div>
 
-  <!-- Scroll-in animation -->
+  <!-- Scroll-in animation logic -->
   <script>
     const sections = document.querySelectorAll("section");
     const topBar = document.getElementById("top-bar");
@@ -651,28 +593,10 @@
 
     sections.forEach((section) => observer.observe(section));
 
+    // Make header appear on load
     window.addEventListener("load", () => {
       topBar.classList.add("visible");
     });
-  </script>
-
-  <!-- JSON-LD -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "Pradeep Sharma",
-    "jobTitle": "Software Developer",
-    "description": "Software Developer and Full Stack Engineer based in Mumbai, India. Skilled in PHP, Laravel, JavaScript, MySQL, Linux, and machine learning basics. Available for software developer and full stack roles.",
-    "url": "https://your-portfolio-url.com",
-    "email": "mailto:pradeepsharma79000@gmail.com",
-    "telephone": "+917900071754",
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "Mumbai",
-      "addressCountry": "IN"
-    }
-  }
   </script>
 </body>
 </html>
